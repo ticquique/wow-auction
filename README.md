@@ -5,8 +5,6 @@
 
 > Deep learning and big data applied to world of warcraft auction
 
-![Relative date](https://img.shields.io/date/1566832694?style=flat-square)
-
 ---
 
 ## Table of Contents
@@ -42,10 +40,10 @@ $ docker-compose up -d
 ### Step 1
 
 - **Option 1**
-    - 🍴 Fork this repo!
+  - 🍴 Fork this repo!
 
 - **Option 2**
-    - 👯 Clone this repo to your local machine using `git clone https://github.com/ticquique/wow-auction.git`
+  - 👯 Clone this repo to your local machine using `git clone https://github.com/ticquique/wow-auction.git`
 
 ### Step 2
 
