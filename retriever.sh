@@ -1,5 +1,5 @@
 #!/bin/bash
-while getopts ":i:n:m:e:" arg; do
+while getopts ":i:s:" arg; do
   case $arg in
     s) secret=$OPTARG;;
     i) id=$OPTARG;;
