@@ -1,8 +1,9 @@
 #!/bin/bash
-while getopts ":i:s:" arg; do
+while getopts ":i:s:o:" arg; do
   case $arg in
     s) secret=$OPTARG;;
     i) id=$OPTARG;;
+    o) output=$OPTARG;;
   esac
 done
 date=`date +"%Y-%m-%d %H:%M:%S"`
@@ -11,5 +12,5 @@ token=`curl -u ${id}:${secret} -d grant_type=client_credentials https://eu.battl
 europe=("tyrande" "exodar")
 for i in "${europe[@]}"; do   # The quotes are necessary here
     url=`curl --header "Authorization: Bearer ${token}" https://eu.api.blizzard.com/wow/auction/data/$i?locale=en_US | jq -j .files[0].url`
-    curl $url > "auction_${i}_${date}.json"
+    curl $url > "${output}/auction_${i}_${date}.json"
 done
