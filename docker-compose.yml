@@ -7,6 +7,7 @@ services:
       - ./cron-retrieval/root:/var/spool/cron/crontabs/root
       - ./cron-retrieval/retriever.sh:/home/retriever.sh
       - ./cron-retrieval/results:/home/results
+      - ./cron-retrieval/cron.log:/var/log/cron.log
     environment:
       - WOW_SECRET=${WOW_SECRET}
       - WOW_ID=${WOW_ID}
