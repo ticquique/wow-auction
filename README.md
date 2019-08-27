@@ -28,13 +28,18 @@
 
 ```shell
 $ docker-compose build
-$ docker-compose up -d
 ```
 
 > Create dotenv file and change variables from <a href="https://develop.battle.net/access/clients" target="_blank">`https://develop.battle.net/access/clients`</a>
 
 ```shell
 $ cp .env_sample .env
+```
+
+> Start the containers
+
+```shell
+$ docker-compose up -d
 ```
 
 ---
