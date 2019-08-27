@@ -4,7 +4,7 @@ services:
     build: cron-retrieval
     container_name: wow_cron
     volumes:
-      - ./cron-retrieval/root:/etc/crontabs/root:rw
+      - ./cron-retrieval/root:/var/spool/cron/crontabs/root
       - ./cron-retrieval/retriever.sh:/home/retriever.sh
       - ./cron-retrieval/results:/home/results
     environment:

@@ -8,4 +8,4 @@
 # │ │ │ │ │
 # * * * * *  command to execute
 
-0 * * * * * bash /home/cron-retrieval.sh 
+*/15 * * * * * bash /home/retriever.sh 
