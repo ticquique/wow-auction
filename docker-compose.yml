@@ -1,0 +1,12 @@
+version: "3"
+services:
+  cron:
+    build: cron-retrieval
+    container_name: wow_cron
+    volumes:
+      - ./cron-retrieval/root:/etc/crontabs/root:rw
+      - ./cron-retrieval/retriever.sh:/home/retriever.sh
+      - ./cron-retrieval/results:/home/results
+    environment:
+      - WOW_SECRET=${WOW_SECRET}
+      - WOW_ID=${WOW_ID}

@@ -31,6 +31,12 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
+> Create dotenv file and change variables from <a href="https://develop.battle.net/access/clients" target="_blank">`https://develop.battle.net/access/clients`</a>
+
+```shell
+$ cp .env_sample .env
+```
+
 ---
 
 ## Contributing
@@ -59,7 +65,7 @@ $ docker-compose up -d
 
 | <a href="https://github.com/Alejandro1994-afk" target="_blank">**Alejandro1994-afk**</a> | <a href="https://github.com/ticquique" target="_blank">**Ticquique**</a> |
 | :---: |:---:|
-| [![Alejandro1994-afk](https://github.com/Alejandro1994-afk.png?s=200)](https://github.com/Alejandro1994-afk)    | [![Ticquique](https://github.com/ticquique.png?s=200)](https://github.com/ticquique) |
+| [![Alejandro1994-afk](https://github.com/Alejandro1994-afk.png?size=200)](https://github.com/Alejandro1994-afk)    | [![Ticquique](https://github.com/ticquique.png?size=200)](https://github.com/ticquique) |
 | <a href="https://github.com/Alejandro1994-afk" target="_blank">`github.com/Alejandro1994-afk`</a> | <a href="https://github.com/ticquique" target="_blank">`github.com/ticquique`</a> |
 
 ## License

@@ -1,4 +1,10 @@
 #!/bin/bash
+echo "WOW secret: $WOW_SECRET"
+echo "WOW id: $WOW_ID"
+
+secret=$WOW_SECRET
+id=$WOW_ID
+output='/home/results'
 while getopts ":i:s:o:" arg; do
   case $arg in
     s) secret=$OPTARG;;
@@ -13,4 +19,5 @@ europe=("tyrande" "exodar")
 for i in "${europe[@]}"; do   # The quotes are necessary here
     url=`curl --header "Authorization: Bearer ${token}" https://eu.api.blizzard.com/wow/auction/data/$i?locale=en_US | jq -j .files[0].url`
     curl $url > "${output}/auction_${i}_${date}.json"
+    echo "Created file ${output}/auction_${i}_${date}.json" >> /var/log/cron.log 2>&1
 done
