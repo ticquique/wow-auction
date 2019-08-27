@@ -6,6 +6,7 @@ RUN apt-get update \
     cron \
     curl \
     jq \
+    vim \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /home/results

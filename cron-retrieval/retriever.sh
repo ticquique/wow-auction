@@ -1,9 +1,7 @@
 #!/bin/bash
-echo "WOW secret: $WOW_SECRET"
-echo "WOW id: $WOW_ID"
-
 secret=$WOW_SECRET
 id=$WOW_ID
+
 output='/home/results'
 while getopts ":i:s:o:" arg; do
   case $arg in
@@ -12,6 +10,10 @@ while getopts ":i:s:o:" arg; do
     o) output=$OPTARG;;
   esac
 done
+
+echo "WOW secret: $secret" >> /var/log/cron.log 2>&1
+echo "WOW id: $id" >> /var/log/cron.log 2>&1
+
 date=`date +"%Y-%m-%d %H:%M:%S"`
 token=`curl -u ${id}:${secret} -d grant_type=client_credentials https://eu.battle.net/oauth/token | jq -j '.access_token'`
 # europe=("shazzrah" "flamelash" "gandling" "razorgore" "firemaw" "gehennas" "golemag" "mograine")

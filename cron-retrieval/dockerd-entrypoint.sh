@@ -8,8 +8,10 @@ then
 fi
 
 if [[ "$1" == "serve" ]]; then
-    shift 1
-    cron && tail -f /var/log/cron.log
+    cronjob="* * * * * bash /home/retriever.sh -s ${WOW_SECRET} -i ${WOW_ID}"
+    echo "$cronjob" | crontab -
+    cron start
+    tail -f /var/log/cron.log
 else
     eval "$@"
 fi
