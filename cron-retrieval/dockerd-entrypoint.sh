@@ -7,13 +7,18 @@ then
   exit 1;
 fi
 
+
+echo "WOW secret: $WOW_SECRET"
+echo "WOW id: $WOW_ID"
+
 if [[ "$1" == "serve" ]]; then
-    cronjob="* * * * * bash /home/retriever.sh -s ${WOW_SECRET} -i ${WOW_ID}"
-    echo "$cronjob" | crontab -
-    cron start
-    tail -f /var/log/cron.log
+  rm -rf /tmp/*
+  cronjob="* * * * * bash /home/retriever.sh -s ${WOW_SECRET} -i ${WOW_ID}"
+  echo "$cronjob" | crontab -
+  cron start
+  tail -f /var/log/cron.log
 else
-    eval "$@"
+  eval "$@"
 fi
 
 # prevent docker exit
