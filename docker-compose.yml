@@ -1,11 +1,8 @@
-version: "3"
+version: "3.7"
 services:
   cron:
     build: cron-retrieval
     container_name: wow_cron
-    volumes:
-      - ./cron-retrieval/retriever.sh:/home/retriever.sh
-      - ./cron-retrieval/results:/home/results
     environment:
       - WOW_SECRET=${WOW_SECRET}
       - WOW_ID=${WOW_ID}
@@ -23,13 +20,7 @@ services:
     command: --smallfiles
 
   angular:
-    image: nginx
-    volumes:
-      - ./frontend/dist:/var/www/html
-      - ./config/default.conf:/etc/nginx/conf.d/default.conf
-      - ./config/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "9090:80"
+    build: frontend
     restart: always
     environment:
       - TZ=UTC

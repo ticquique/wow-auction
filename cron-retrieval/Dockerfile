@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:latest as base
 LABEL maintainer="ticquique@gmail.com"
 
 RUN apt-get update \
@@ -16,6 +16,10 @@ RUN touch /var/log/cron.log
 COPY dockerd-entrypoint.sh /usr/local/bin/dockerd-entrypoint.sh
 
 RUN chmod +x /usr/local/bin/dockerd-entrypoint.sh
+
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
 
 CMD ["serve"]
+FROM base as build
+
+COPY ./retriever.sh home/retriever.sh

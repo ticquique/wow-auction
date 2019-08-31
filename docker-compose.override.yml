@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  cron:
+    build:
+      target: base
+    volumes:
+      - ./cron-retrieval/retriever.sh:/home/retriever.sh
+      - ./cron-retrieval/results:/home/results
+
+  mongo:
+    volumes:
+      - ./db:/data/db
+
+  node_angular:
+    build:
+      context: frontend
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./frontend/angular:/usr/src/app
+
+  angular:
+    image: nginx
+    volumes:
+      - ./frontend/config/default.conf.dev:/etc/nginx/conf.d/default.conf
+      - ./frontend/config/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "9090:80"
+    depends_on:
+      - node_angular
