@@ -27,3 +27,10 @@ services:
       - "9090:80"
     depends_on:
       - node_angular
+  
+  backend:
+    image: tensorflow/tensorflow:nightly-gpu-py3-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/tf/notebooks

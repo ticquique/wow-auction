@@ -27,3 +27,5 @@ services:
       - PRODUCTION=${PRODUCTION:-false}
       - APP_DOMAIN=${APP_DOMAIN:-wow.webynav.com}
       - APP_DOMAIN_DEV=${APP_DOMAIN_DEV:-localhost}
+
+
