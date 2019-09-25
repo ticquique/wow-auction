@@ -3,7 +3,7 @@
 
 <a href="https://github.com/ticquique/wow-auction"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB-cWv3HL9dutj9RsvI_yEONFQLlj6Hge6FeSX9Tk53AwH7eMd" title="Wow auction" alt="Wow auction"></a>
 
-> Deep learning and big data applied to world of warcraft auction
+> Deep learning and big data applied to world of warcraft auction with tensorflow, elasticsearch and angular2
 
 ---
 
