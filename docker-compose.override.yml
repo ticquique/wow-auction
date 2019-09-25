@@ -7,10 +7,6 @@ services:
       - ./cron-retrieval/retriever.sh:/home/retriever.sh
       - ./cron-retrieval/results:/home/results
 
-  mongo:
-    volumes:
-      - ./db:/data/db
-
   node_angular:
     build:
       context: frontend
@@ -34,3 +30,10 @@ services:
       - "8888:8888"
     volumes:
       - ./notebooks:/tf/notebooks
+
+  elastic:
+    ports:
+      - "9200:9200" 
+      - "9300:9300"
+
+  

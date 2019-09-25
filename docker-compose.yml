@@ -7,18 +7,6 @@ services:
       - WOW_SECRET=${WOW_SECRET}
       - WOW_ID=${WOW_ID}
 
-  mongo:
-    image: mongo
-    restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
-      - MONGO_DATABASE=${MONGO_DATABASE}
-      - PRODUCTION=${PRODUCTION:-false}
-    volumes:
-      - ./db:/data/db
-    command: --smallfiles
-
   angular:
     build: frontend
     restart: always
@@ -28,4 +16,22 @@ services:
       - APP_DOMAIN=${APP_DOMAIN:-wow.webynav.com}
       - APP_DOMAIN_DEV=${APP_DOMAIN_DEV:-localhost}
 
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.2
+    container_name: wow_db
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+volumes:
+  esdata:
+    driver: local
 
