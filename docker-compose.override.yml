@@ -37,9 +37,17 @@ services:
       - "9200:9200" 
       - "9300:9300"
 
+
   kibana:
+    image: docker.elastic.co/kibana/kibana:7.4.0
+    container_name: wow_kibana
     environment:
       - SERVER_NAME=localhost
+      - ELASTICSEARCH_HOSTS=http://elastic:9200
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     ports:
       - 5601:5601
   

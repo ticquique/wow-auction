@@ -30,17 +30,6 @@ services:
         hard: -1
     volumes:
       - esdata:/usr/share/elasticsearch/data
-  
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.4.0
-    container_name: wow_kibana
-    environment:
-      - SERVER_NAME=elastic.webynav.com
-      - ELASTICSEARCH_HOSTS=http://elastic:9200
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
 
 volumes:
   esdata:
