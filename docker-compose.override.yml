@@ -37,4 +37,9 @@ services:
       - "9200:9200" 
       - "9300:9300"
 
+  kibana:
+    environment:
+      - SERVER_NAME=localhost
+    ports:
+      - 5601:5601
   
